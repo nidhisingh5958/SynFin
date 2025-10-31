@@ -66,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   // Logo/Icon
                   Image.asset(
-                    'assets/icon/logo_without_name.png',
+                    'assets/icon/synfin_logo.png',
                     width: 80,
                     height: 80,
                   ),

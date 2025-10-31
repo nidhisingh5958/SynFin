@@ -49,8 +49,15 @@ dependencies:
   http: ^1.5.0
 
   flutter_launcher_icons: ^0.14.4
+  flutter_native_splash: ^2.4.7
 
-
+flutter_native_splash:
+  background_image: "assets/background.png"   
+  color: "#7E4850"
+  fullscreen: true
+  image: assets/synfin.png              
+  android: true
+  ios: true
 
 dev_dependencies:
   flutter_test:

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BrandColors {
-  // Primary Savify brand color (deep red/maroon)
+  // Primary SynFin brand color (deep red/maroon)
   static const primary = Color(0xFFB10042);
   static const onPrimary = Colors.white;
 

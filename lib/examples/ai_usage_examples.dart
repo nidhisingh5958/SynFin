@@ -1,4 +1,4 @@
-/// Example Usage of Financial AI Integration in Savify
+/// Example Usage of Financial AI Integration in SynFin
 /// This file demonstrates how to use the AI features in your Flutter app
 
 import 'package:flutter/material.dart';
