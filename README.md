@@ -177,6 +177,24 @@ All data is stored locally using SharedPreferences, ensuring:
 - [ ] Financial goal setting and tracking
 - [ ] Bill reminders and notifications
 
+## New: Agentic Loan Sales Chatbot (SynFin Assistant)
+
+This repository now includes a simple, local mock of an Agentic AI sales assistant that simulates the NBFC personal-loan workflow described in the project diagram.
+
+Files added:
+- `lib/services/worker_agents.dart` — Mock worker agents (KYC/credit score, underwriting, sanction letter generation).
+- `lib/services/agent_master.dart` — A MasterAgent which orchestrates worker agents and drives a short conversational flow.
+- `lib/screens/chatbot_screen.dart` — Simple chat UI to interact with the MasterAgent.
+
+How it works (local mock):
+- Open the app and tap the chat icon in the top-right of the Home screen.
+- Type a message mentioning a loan (e.g., "I want a loan of 200000").
+- The MasterAgent will simulate verification, underwriting, and sanction-letter generation and show status updates in the chat.
+
+Notes:
+- This is a mocked local simulation for UI and orchestration testing — no external APIs are called.
+- The sanction letter is returned as a text placeholder (not a real PDF). Replace with real PDF generation or API calls for production.
+
 ---
 
 ## Contact 📧

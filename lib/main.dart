@@ -6,6 +6,7 @@ import 'screens/login_screen.dart';
 import 'providers/transaction_provider.dart';
 import 'providers/ai_agent_provider.dart';
 import 'providers/auth_provider.dart';
+import 'providers/loan_provider.dart';
 
 void main() {
   runApp(const SynFinApp());
@@ -19,8 +20,9 @@ class SynFinApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
-        ChangeNotifierProvider(create: (_) => TransactionProvider()),
-        ChangeNotifierProvider(create: (_) => AIAgentProvider()),
+  ChangeNotifierProvider(create: (_) => TransactionProvider()),
+  ChangeNotifierProvider(create: (_) => AIAgentProvider()),
+  ChangeNotifierProvider(create: (_) => LoanProvider()),
       ],
       child: Consumer<AuthProvider>(
         builder: (context, authProvider, _) {
