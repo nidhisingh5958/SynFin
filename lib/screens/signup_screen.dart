@@ -82,7 +82,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 children: [
                   // Icon
                   Image.asset(
-                    'assets/icon/lsynfin_logo.png',
+                    'assets/icon/synfin_logo.png',
                     width: 80,
                     height: 80,
                   ),
