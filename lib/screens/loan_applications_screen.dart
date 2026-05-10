@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/loan_provider.dart';
-import '../models/loan_application.dart';
 import 'chatbot_screen.dart';
 
 class LoanApplicationsScreen extends StatelessWidget {
@@ -35,15 +34,22 @@ class LoanApplicationsScreen extends StatelessWidget {
               return Card(
                 child: ListTile(
                   title: Text(a.applicantName),
-                  subtitle: Text('Amount: INR ${a.requestedAmount.toStringAsFixed(0)} • ${a.employmentType}'),
-                  trailing: Text(a.status, style: TextStyle(color: _statusColor(a.status))),
+                  subtitle: Text(
+                    'Amount: INR ${a.requestedAmount.toStringAsFixed(0)} • ${a.employmentType}',
+                  ),
+                  trailing: Text(
+                    a.status,
+                    style: TextStyle(color: _statusColor(a.status)),
+                  ),
                   onTap: () {
                     // open chat with context to continue sanctioning for this application
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (c) => ChatbotScreen(
-                          initialMessage: 'Process loan ${a.requestedAmount.toStringAsFixed(0)} for ${a.applicantName}',
+                          customerId: 'customer_12345',
+                          initialMessage:
+                              'Process loan ${a.requestedAmount.toStringAsFixed(0)} for ${a.applicantName}',
                           initialContext: {
                             'name': a.applicantName,
                             'loanAmount': a.requestedAmount,

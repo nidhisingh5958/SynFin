@@ -8,9 +8,6 @@ import 'loan_dashboard_screen.dart';
 import 'loan_applications_screen.dart';
 import 'add_loan_screen.dart';
 import 'profile_screen.dart';
-import '../widgets/balance_card.dart';
-import '../widgets/quick_stats.dart';
-import '../widgets/recent_transactions.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -102,7 +99,10 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const ChatbotScreen()),
+                MaterialPageRoute(
+                  builder: (context) =>
+                      const ChatbotScreen(customerId: 'customer_12345'),
+                ),
               );
             },
           ),
@@ -177,9 +177,14 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Welcome to SynFin Loan Platform', style: Theme.of(context).textTheme.titleLarge),
+                  Text(
+                    'Welcome to SynFin Loan Platform',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
                   const SizedBox(height: 8),
-                  const Text('Use the + button to create a new loan application or open the chat assistant to process sanctions.'),
+                  const Text(
+                    'Use the + button to create a new loan application or open the chat assistant to process sanctions.',
+                  ),
                 ],
               ),
             ),
@@ -223,14 +228,27 @@ class _HomeScreenState extends State<HomeScreen> {
                   return Card(
                     child: ListTile(
                       title: Text(a.applicantName),
-                      subtitle: Text('INR ${a.requestedAmount.toStringAsFixed(0)} • ${a.employmentType}'),
-                      trailing: Text(a.status, style: TextStyle(color: a.status == 'approved' ? Colors.green : (a.status == 'rejected' ? Colors.red : Colors.orange))),
+                      subtitle: Text(
+                        'INR ${a.requestedAmount.toStringAsFixed(0)} • ${a.employmentType}',
+                      ),
+                      trailing: Text(
+                        a.status,
+                        style: TextStyle(
+                          color: a.status == 'approved'
+                              ? Colors.green
+                              : (a.status == 'rejected'
+                                    ? Colors.red
+                                    : Colors.orange),
+                        ),
+                      ),
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (c) => ChatbotScreen(
-                              initialMessage: 'Process loan ${a.requestedAmount.toStringAsFixed(0)} for ${a.applicantName}',
+                              customerId: 'customer_12345',
+                              initialMessage:
+                                  'Process loan ${a.requestedAmount.toStringAsFixed(0)} for ${a.applicantName}',
                               initialContext: {
                                 'name': a.applicantName,
                                 'loanAmount': a.requestedAmount,

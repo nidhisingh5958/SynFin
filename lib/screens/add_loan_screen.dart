@@ -44,6 +44,7 @@ class _AddLoanScreenState extends State<AddLoanScreen> {
       context,
       MaterialPageRoute(
         builder: (c) => ChatbotScreen(
+          customerId: 'customer_12345',
           initialMessage: 'Process loan $amount for $name',
           initialContext: {
             'name': name,
@@ -75,22 +76,29 @@ class _AddLoanScreenState extends State<AddLoanScreen> {
               TextFormField(
                 controller: _amount,
                 keyboardType: TextInputType.number,
-                decoration: const InputDecoration(labelText: 'Requested Amount'),
-                validator: (v) => v == null || v.isEmpty ? 'Enter amount' : null,
+                decoration: const InputDecoration(
+                  labelText: 'Requested Amount',
+                ),
+                validator: (v) =>
+                    v == null || v.isEmpty ? 'Enter amount' : null,
               ),
               const SizedBox(height: 12),
               TextFormField(
                 controller: _salary,
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(labelText: 'Monthly Salary'),
-                validator: (v) => v == null || v.isEmpty ? 'Enter salary' : null,
+                validator: (v) =>
+                    v == null || v.isEmpty ? 'Enter salary' : null,
               ),
               const SizedBox(height: 12),
               DropdownButtonFormField<String>(
                 value: _employment,
                 items: const [
                   DropdownMenuItem(value: 'salaried', child: Text('Salaried')),
-                  DropdownMenuItem(value: 'self-employed', child: Text('Self-employed')),
+                  DropdownMenuItem(
+                    value: 'self-employed',
+                    child: Text('Self-employed'),
+                  ),
                 ],
                 onChanged: (v) => setState(() => _employment = v ?? 'salaried'),
                 decoration: const InputDecoration(labelText: 'Employment Type'),
