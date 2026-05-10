@@ -98,8 +98,3 @@ This repository includes a `LICENSE` file in the project root. Follow its terms 
 
 ## Contact
 Open issues on GitHub for questions, feature requests, or bug reports.
-
----
-
-Made with ❤️ using Flutter
-# thePrecisionLedger
